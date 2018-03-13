@@ -1,0 +1,80 @@
+.mobile-frame-2 {
+  margin-left: 40px;
+  height: 565px;
+  width: 296px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.4);
+  border-width: 1px;
+  border-radius: 10px;
+  margin-right: auto;
+  background-color: rgba(0,0,0,1);
+}
+.mobile-edit-preview {
+  color: white;
+  float: left;
+  display: inline-block;
+  position: absolute;
+  z-index: 9999;
+  padding: 7px 8px 7px 10px;
+  font-size: 14px;
+}
+
+.mobile-alert-btn{
+  color: white;
+}
+
+.mobile-screen{
+  height: 705px;
+  width: 396px;
+  /* transform: translate(-51px, -106px) scale(0.7); */
+  -webkit-transform: translate(-51px, -106px) scale(0.7);
+  -moz-transform: translate(-51px, -106px) scale(0.7);
+  -o-transform: translate(-51px, -106px) scale(0.7);
+  margin-top: 11px;
+  margin-left: 1px;
+  margin-right: auto;
+  overflow-y: auto;
+  background-color: rgba(255,255,255,1);
+}
+
+.drop-place-first{
+  height: 100px;
+  background-color: blue;
+}
+
+.placeholder-section{
+  background-color: red;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+}
+
+.overlay-hint{
+  height: 100%;
+  background-color: grey;
+}
+
+.drop-zone{
+  display: flex;
+}
+
+.displaySections{
+  display: flex;
+  flex-direction: column;
+  max-height: 705px;
+}
+
+
+.edit-button-column{
+  height: 565px;
+  background-color: yellow;
+  padding-top:29px;
+  padding-left: 8px;
+}
+.banner-edit-button{
+  height: 131.6px;
+}
+.footer-edit-button{
+  height: 49.35px;
+}

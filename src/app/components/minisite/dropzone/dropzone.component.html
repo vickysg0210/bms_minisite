@@ -1,0 +1,49 @@
+
+<div class="drop-zone">
+  <div class="mobile-frame-2">
+    <div class="mobile-edit-preview">
+      preview
+    </div>
+    <div class="mobile-alert-btn">
+      alert
+    </div>
+    <div class="mobile-screen">
+      <div class="displaySections">
+        <div class="drop-place-first" dndDropzone (dndDrop) = "onDrop($event,0)" *ngIf ="placeholderShow">
+          <!-- <div class="placeholder-section" dndPlaceholderRef>
+            Put it here
+          </div> -->
+
+        </div>
+        <div class="drop-places-loop" *ngFor="let section of advertisementList; let i = index">
+          <!-- <div [innerHTML] ="section | safeHtml : 'script' | safeHtml : 'html'">
+
+          </div> -->
+          <div class="drop-places-n" *ngIf = "section == 'banner'">
+            <app-banner-edit class="section-element">
+            </app-banner-edit>
+          </div>
+          <div class="drop-places-n" *ngIf = "section == 'footer'">
+            <app-footer-edit class="section-element">
+            </app-footer-edit>
+          </div>
+          <div class="drop-place-first" dndDropzone (dndDrop)= "onDrop($event,i+1)" *ngIf ="placeholderShow">
+            <!-- <div class="placeholder-section" dndPlaceholderRef>
+              Put it here
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="edit-button-column">
+    <div *ngFor = "let section of advertisementList">
+      <div class="banner-edit-button" *ngIf="section == 'banner'">
+        <button mat-icon-button><mat-icon>build</mat-icon></button>
+      </div>
+      <div class="footer-edit-button" *ngIf="section == 'footer'">
+        <button mat-icon-button><mat-icon>build</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>

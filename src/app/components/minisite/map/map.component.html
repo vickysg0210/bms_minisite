@@ -1,0 +1,9 @@
+<div class="element-box" [dndDraggable]="title" (dndStart) ="onDragStart($event)"
+[style.backgroundImage]="'url('+ bkurl +')'">
+  <div class="title">
+    {{title}}
+  </div>
+  <div class="description">
+    {{description}}
+  </div>
+</div>
