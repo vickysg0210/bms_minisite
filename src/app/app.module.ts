@@ -9,7 +9,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContenteditableDirective } from 'ng-contenteditable';
-import { QuillModule } from 'ngx-quill'
 
 
 
@@ -69,8 +68,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule,
-    QuillModule
+    ReactiveFormsModule
 
   ],
   providers: [DataService],
