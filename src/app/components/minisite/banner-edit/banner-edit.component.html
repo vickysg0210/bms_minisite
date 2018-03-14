@@ -1,15 +1,13 @@
-<!-- <div style="background-image: url('../../../../assets/cafe.png');background-size: cover;background-repeat: no-repeat;background-position: center;">
+<div style="background-image: url('../../../../assets/cafe.png');background-size: cover;background-repeat: no-repeat;background-position: center;">
   <div style="background-color: rgba(85, 55, 0, 0.5);color: rgb(255, 255, 255);padding: 10px;">
-    <div contenteditable="true" style="text-align: center;font-size: 22px;\">
-      <br />{{this.title}}
+    <br />
+    <div contenteditable="true" style="text-align: center;font-size: 22px;\" [formControl] = "titleControl">
     </div>
-    <div contenteditable="true" style="text-align:center;font-size:12px">
-      <br />{{this.description}}
-      <br /><br /><br />
+    <br />
+    <br />
+    <div contenteditable="true" style="text-align:center;font-size:12px" [formControl] = "descriptionControl">
     </div>
+    <br />
   </div>
-</div> -->
-<!-- <button mat-button color ="primary" class="edit-button">Basic</button> -->
-<div [ngStyle] = "{'background-color':'red'}">
-
 </div>
+<!-- <button mat-button color ="primary" class="edit-button">Basic</button> -->

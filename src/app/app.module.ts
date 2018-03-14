@@ -7,6 +7,11 @@ import { DndModule } from 'ngx-drag-drop';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContenteditableDirective } from 'ng-contenteditable';
+import { QuillModule } from 'ngx-quill'
+
+
 
 import { AppComponent } from './app.component';
 import { CouponPageComponent } from './pages/minisite/coupon-page/coupon-page.component';
@@ -48,7 +53,8 @@ const appRoutes: Routes = [
     CarouselEditComponent,
     FooterEditComponent,
     MapEditComponent,
-    SocialmediaEditComponent
+    SocialmediaEditComponent,
+    ContenteditableDirective
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,11 @@ const appRoutes: Routes = [
     DndModule,
     MatGridListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    QuillModule
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
