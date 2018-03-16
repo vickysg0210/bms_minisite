@@ -1,13 +1,15 @@
 <div style="background-image: url('../../../../assets/cafe.png');background-size: cover;background-repeat: no-repeat;background-position: center;">
-  <div style="background-color: rgba(85, 55, 0, 0.5);color: rgb(255, 255, 255);padding: 10px;">
+  <div [style.backgroundColor] = "cusStyle.bkcolor" >
+  <!-- style="color: rgb(255, 255, 255);padding: 10px;"> -->
     <br />
-    <div contenteditable="true" style="text-align: center;font-size: 22px;\" [formControl] = "titleControl">
-    </div>
+    <div #el1 contenteditable="true" (blur)="cusStyle.title=el1.innerText" style="text-align: center;font-size: 22px;\">{{cusStyle.title}}</div>
     <br />
     <br />
-    <div contenteditable="true" style="text-align:center;font-size:12px" [formControl] = "descriptionControl">
-    </div>
+    <div #el2 contenteditable="true" (blur) = "cusStyle.description=el2.innerText" style="text-align:center;font-size:12px">{{cusStyle.description}}</div>
     <br />
   </div>
 </div>
+{{cusStyle.title}}
+{{cusStyle.description}}
+
 <!-- <button mat-button color ="primary" class="edit-button">Basic</button> -->

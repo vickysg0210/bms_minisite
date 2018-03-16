@@ -15,18 +15,19 @@
           </div> -->
 
         </div>
-        <div class="drop-places-loop" *ngFor="let section of advertisementList; let i = index">
+        <div class="drop-places-loop" *ngFor="let element of displayElementList; let i = index">
           <!-- <div [innerHTML] ="section | safeHtml : 'script' | safeHtml : 'html'">
 
           </div> -->
-          <div class="drop-places-n" *ngIf = "section == 'banner'">
-            <app-banner-edit class="section-element">
+          <div class="drop-places-n" *ngIf = "isBannerStyle(element)"  >
+            <app-banner-edit (click) = "bannerEditBarOpen(i)" class="section-element" [cusStyle] = "element">
             </app-banner-edit>
+            <!-- {{displayElementList[i].title}} -->
           </div>
-          <div class="drop-places-n" *ngIf = "section == 'footer'">
+          <!-- <div class="drop-places-n" *ngIf = "element.constructor.name =='FooterStyle'">
             <app-footer-edit class="section-element">
             </app-footer-edit>
-          </div>
+          </div> -->
           <div class="drop-place-first" dndDropzone (dndDrop)= "onDrop($event,i+1)" *ngIf ="placeholderShow">
             <!-- <div class="placeholder-section" dndPlaceholderRef>
               Put it here
@@ -37,12 +38,46 @@
     </div>
   </div>
   <div class="edit-button-column">
-    <div *ngFor = "let section of advertisementList">
+    <!-- <div *ngFor = "let section of advertisementList">
       <div class="banner-edit-button" *ngIf="section == 'banner'">
         <button mat-icon-button><mat-icon>build</mat-icon></button>
       </div>
       <div class="footer-edit-button" *ngIf="section == 'footer'">
         <button mat-icon-button><mat-icon>build</mat-icon></button>
+      </div>
+    </div> -->
+    <div *ngIf = "bannerEditBarShow" class="banner-edit-window">
+      <button mat-icon-button (click)="closeEditPanel()" style="height: 13px;"><mat-icon style="font-size:15px;">close</mat-icon></button>
+      <!-- <button mat-mini-fab class="close" (click)="closeEditPanel()">×</button> -->
+      <div class="editContainer">
+        <mat-list>
+          <mat-list-item>
+            <label>Overlay</label>
+            <mat-form-field>
+              <input matInput [value]="bannerOverlayColor"
+                     [style.background]="bannerOverlayColor"
+                     [cpAlphaChannel]="'always'"
+                     [cpOutputFormat]="'rgba'"
+                     [(colorPicker)]="bannerOverlayColor"
+                     (colorPickerChange)="onChangeColor($event);bannerOverlayColor=$event"/>
+            </mat-form-field>
+          </mat-list-item>
+            <label>Header</label>
+            <div class="input-group">
+              <mat-slider [thumb-label]="thumbLabel"></mat-slider>
+              <!-- <div class="input-group-btn btn-group-sm">
+                <button mat-icon-button>
+                  <mat-icon class="fa fa-align-left"></i>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="param_ad_editor.data.banner_title_s_1[&quot;text-align&quot;]=&quot;center&quot;">
+                  <i class="fa fa-align-center"></i>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="param_ad_editor.data.banner_title_s_1[&quot;text-align&quot;]=&quot;right&quot;">
+                  <i class="fa fa-align-right"></i>
+                </button>
+              </div> -->
+            </div>
+        </mat-list>
       </div>
     </div>
   </div>
