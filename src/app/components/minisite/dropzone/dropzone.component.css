@@ -1,13 +1,13 @@
 .mobile-frame-2 {
-  margin-left: 40px;
   height: 565px;
   width: 296px;
   border-style: solid;
   border-color: rgba(0,0,0,0.4);
   border-width: 1px;
   border-radius: 10px;
-  margin-right: auto;
   background-color: rgba(0,0,0,1);
+  position: relative;
+  right: 90px
 }
 .mobile-edit-preview {
   color: white;
@@ -59,16 +59,32 @@
   display: flex;
 }
 
-.displaySections{
+/* .displaySections{
   display: flex;
   flex-direction: column;
   max-height: 705px;
-}
-
-
-.edit-button-column{
+} */
+/* .edit-button-column{
   height: 565px;
   background-color: yellow;
   padding-top:29px;
   padding-left: 8px;
+} */
+
+.input-group{
+  display: flex;
+}
+
+.edit-button-column{
+  height: 553px;
+  width: 296px;
+}
+
+.emptyEditPanel{
+  border-style: groove;
+  border-width: 8px;
+  height : 100%;
+  width: 100%;
+  display: flex;
+
 }

@@ -14,6 +14,18 @@
     "lib": [
       "es2017",
       "dom"
-    ]
-  }
+    ],
+    "baseUrl": "",
+  "paths": {
+    "@angular/*": ["../node_modules/@angular/*"]
+}
+  },
+  "include": [
+    "src/**/*",
+    "node_modules/angular4-files-upload/index.ts"
+  ],
+  "exclude": [
+   "**/*.ignore/*",
+   "**/*.spec.ts"
+ ]
 }

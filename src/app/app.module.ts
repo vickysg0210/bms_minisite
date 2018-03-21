@@ -7,15 +7,16 @@ import {MatCardModule} from '@angular/material/card';
 import { DndModule } from 'ngx-drag-drop';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContenteditableDirective } from 'ng-contenteditable';
 import {MatListModule} from '@angular/material/list';
 import { ColorPickerModule } from 'ngx-color-picker';
 import {MatInputModule} from '@angular/material/input';
 import {MatSliderModule} from '@angular/material/slider';
-
-
+import { MatIconRegistry, MatIconModule } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import { Ng4FilesModule } from 'angular4-files-upload';
 
 import { AppComponent } from './app.component';
 import { CouponPageComponent } from './pages/minisite/coupon-page/coupon-page.component';
@@ -78,11 +79,17 @@ const appRoutes: Routes = [
     MatListModule,
     ColorPickerModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule,
+    Ng4FilesModule
   ],
-  providers: [DataService],
+  providers: [DataService,MatIconRegistry],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer){
+      matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('../assets/mdi.svg')); // Or whatever path you placed mdi.svg at
+    }
+ }
 
 // https://github.com/reppners/ngx-drag-drop

@@ -1,4 +1,3 @@
-
 <div class="drop-zone">
   <div class="mobile-frame-2">
     <div class="mobile-edit-preview">
@@ -13,19 +12,15 @@
           <!-- <div class="placeholder-section" dndPlaceholderRef>
             Put it here
           </div> -->
-
         </div>
         <div class="drop-places-loop" *ngFor="let element of displayElementList; let i = index">
-          <!-- <div [innerHTML] ="section | safeHtml : 'script' | safeHtml : 'html'">
-
-          </div> -->
           <div class="drop-places-n" *ngIf = "isBannerStyle(element)"  >
             <app-banner-edit (click) = "bannerEditBarOpen(i)" class="section-element" [cusStyle] = "element">
             </app-banner-edit>
             <!-- {{displayElementList[i].title}} -->
           </div>
           <!-- <div class="drop-places-n" *ngIf = "element.constructor.name =='FooterStyle'">
-            <app-footer-edit class="section-element">
+          <app-footer-edit class="section-element">
             </app-footer-edit>
           </div> -->
           <div class="drop-place-first" dndDropzone (dndDrop)= "onDrop($event,i+1)" *ngIf ="placeholderShow">
@@ -46,11 +41,11 @@
         <button mat-icon-button><mat-icon>build</mat-icon></button>
       </div>
     </div> -->
-    <div *ngIf = "bannerEditBarShow" class="banner-edit-window">
-      <button mat-icon-button (click)="closeEditPanel()" style="height: 13px;"><mat-icon style="font-size:15px;">close</mat-icon></button>
-      <!-- <button mat-mini-fab class="close" (click)="closeEditPanel()">×</button> -->
-      <div class="editContainer">
+    <div *ngIf = "bannerEditBarShow ;else emptyEditPanel" class="editPanel">
+      <div>
+      <!-- <button mat-icon-button (click)="closeEditPanel()" style="height: 13px;"><mat-icon style="font-size:15px;">close</mat-icon></button> -->
         <mat-list>
+          <!-- overlay edit -->
           <mat-list-item>
             <label>Overlay</label>
             <mat-form-field>
@@ -62,23 +57,75 @@
                      (colorPickerChange)="onChangeColor($event);bannerOverlayColor=$event"/>
             </mat-form-field>
           </mat-list-item>
+          <!-- header edit -->
+          <mat-list-item>
             <label>Header</label>
             <div class="input-group">
-              <mat-slider [thumb-label]="thumbLabel"></mat-slider>
-              <!-- <div class="input-group-btn btn-group-sm">
-                <button mat-icon-button>
-                  <mat-icon class="fa fa-align-left"></i>
+              <mat-form-field>
+                <input matInput [(ngModel)]="displayElementList[index].headerSize"/>
+              </mat-form-field>
+              <div>
+                <button mat-icon-button (click)="onLeftAlignHeader()">
+                  <mat-icon svgIcon="format-align-left"></mat-icon>
                 </button>
-                <button type="button" class="btn btn-default" ng-click="param_ad_editor.data.banner_title_s_1[&quot;text-align&quot;]=&quot;center&quot;">
-                  <i class="fa fa-align-center"></i>
+                <button mat-icon-button (click)="onCenterAlignHeader()">
+                  <mat-icon svgIcon="format-align-center"></mat-icon>
                 </button>
-                <button type="button" class="btn btn-default" ng-click="param_ad_editor.data.banner_title_s_1[&quot;text-align&quot;]=&quot;right&quot;">
-                  <i class="fa fa-align-right"></i>
+                <button mat-icon-button (click)="onRightAlignHeader()">
+                  <mat-icon svgIcon="format-align-right"></mat-icon>
                 </button>
-              </div> -->
+              </div>
             </div>
+          </mat-list-item>
+          <!-- text edit -->
+          <mat-list-item>
+            <label>Text</label>
+            <div class="input-group">
+              <mat-form-field>
+                <input matInput [(ngModel)]="displayElementList[index].textSize"/>
+              </mat-form-field>
+              <div>
+                <button mat-icon-button (click)="onLeftAlignDescription()">
+                  <mat-icon svgIcon="format-align-left"></mat-icon>
+                </button>
+                <button mat-icon-button (click)="onCenterAlignDescrption()">
+                  <mat-icon svgIcon="format-align-center"></mat-icon>
+                </button>
+                <button mat-icon-button (click)="onRightAlignDescrption()">
+                  <mat-icon svgIcon="format-align-right"></mat-icon>
+                </button>
+              </div>
+            </div>
+          </mat-list-item>
+          <!-- text color edit -->
+          <mat-list-item>
+            <label>Text Color</label>
+            <mat-form-field>
+              <input matInput [value]="displayElementList[index].textColor"
+                     [style.background]="displayElementList[index].textColor"
+                     [cpAlphaChannel]="'always'"
+                     [cpOutputFormat]="'hex'"
+                     [(colorPicker)]="displayElementList[index].textColor"
+                     (colorPickerChange)="onChangeTextColor($event);displayElementList[index].textColor=$event"/>
+            </mat-form-field>
+          </mat-list-item>
+          <!-- bg image edit -->
+          <mat-list-item>
+            <label>BG Image</label>
+            <ng4-files-click (filesSelect)="filesSelect($event)">
+              <span>Click me to upload</span>
+              <span>{{this.selectedFiles.files[0].name}}</span>
+            </ng4-files-click>
+          </mat-list-item>
         </mat-list>
       </div>
     </div>
+    <ng-template #emptyEditPanel class="editPanel">
+      <div class="emptyEditPanel">
+        <div style="margin:auto;">
+        Edit Panel
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>

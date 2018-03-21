@@ -1,15 +1,9 @@
-<div style="background-image: url('../../../../assets/cafe.png');background-size: cover;background-repeat: no-repeat;background-position: center;">
-  <div [style.backgroundColor] = "cusStyle.bkcolor" >
-  <!-- style="color: rgb(255, 255, 255);padding: 10px;"> -->
-    <br />
-    <div #el1 contenteditable="true" (blur)="cusStyle.title=el1.innerText" style="text-align: center;font-size: 22px;\">{{cusStyle.title}}</div>
-    <br />
-    <br />
-    <div #el2 contenteditable="true" (blur) = "cusStyle.description=el2.innerText" style="text-align:center;font-size:12px">{{cusStyle.description}}</div>
-    <br />
+<div class="banner-edit-component">
+  <div class="overlay-background" [style.backgroundColor] = "cusStyle.bkcolor"  >
+    <div class="center-in-overlay">
+      <div #el1 contenteditable="true" (blur)="cusStyle.title=el1.innerText" [style.fontSize] = 'cusStyle.headerSize' [style.textAlign]='cusStyle.headerAlign' [style.color]='cusStyle.textColor'>{{cusStyle.title}}</div>
+      <div #el2 contenteditable="true" (blur) = "cusStyle.description=el2.innerText" [style.fontSize] = 'cusStyle.textSize' [style.textAlign]='cusStyle.descriptionAlign' [style.color]='cusStyle.textColor'>{{cusStyle.description}}</div>
+    </div>
   </div>
 </div>
-{{cusStyle.title}}
-{{cusStyle.description}}
-
 <!-- <button mat-button color ="primary" class="edit-button">Basic</button> -->

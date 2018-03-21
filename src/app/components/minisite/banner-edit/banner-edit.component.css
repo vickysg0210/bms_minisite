@@ -1,3 +1,21 @@
 .edit-button{
-  
+
+}
+
+.banner-edit-component{
+  background-image: url('../../../../assets/cafe.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 200px;
+  display: flex;
+}
+
+.overlay-background{
+  width: 100%;
+  display: flex;
+}
+
+.center-in-overlay{
+  margin : auto;
 }

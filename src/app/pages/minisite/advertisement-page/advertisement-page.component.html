@@ -1,4 +1,18 @@
-<div class="adver-page">
+<mat-grid-list cols="3" rowHeight="700px">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <div class="add-section">
+      <app-banner class="element-box"></app-banner>
+      <app-carousel class="element-box"></app-carousel>
+      <app-footer class="element-box"></app-footer>
+      <app-map class="element-box"></app-map>
+      <app-social-media class="element-box"></app-social-media>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <app-dropzone></app-dropzone>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- <div class="advertisement-page-container">
   <div class="add-section">
     <app-banner class="element-box"></app-banner>
     <app-carousel class="element-box"></app-carousel>
@@ -6,8 +20,7 @@
     <app-map class="element-box"></app-map>
     <app-social-media class="element-box"></app-social-media>
   </div>
-
-  <app-dropzone></app-dropzone>
-<!-- 
-  <quill-editor></quill-editor> -->
-</div>
+  <div>
+    <app-dropzone></app-dropzone>
+  </div>
+</div> -->
